@@ -1,0 +1,34 @@
+Best score: 0.8780238146067091
+Best params: {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 32, 'window_size': 4}
+All results: [[0.8179984488846552
+  {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 3, 'walk_number': 100, 'workers': 1, 'dimensions': 64, 'window_size': 2}]
+ [0.7562130311559397
+  {'learning_rate': 0.01, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 64, 'window_size': 2}]
+ [0.11539689598425859
+  {'learning_rate': 1, 'number_of_negative_samples': 0, 'walk_length': 2, 'walk_number': 100, 'workers': 1, 'dimensions': 64, 'window_size': 2}]
+ [0.8581922598446636
+  {'learning_rate': 0.05, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 32, 'window_size': 4}]
+ [0.801799564302976
+  {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 4, 'walk_number': 100, 'workers': 1, 'dimensions': 64, 'window_size': 2}]
+ [0.6626655438423118
+  {'learning_rate': 0.01, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 16, 'window_size': 8}]
+ [0.8780238146067091
+  {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 32, 'window_size': 4}]
+ [0.7354537867376781
+  {'learning_rate': 0.01, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 32, 'window_size': 4}]
+ [0.094334556864893
+  {'learning_rate': 1, 'number_of_negative_samples': 0, 'walk_length': 2, 'walk_number': 100, 'workers': 1, 'dimensions': 32, 'window_size': 4}]
+ [0.8515603997759107
+  {'learning_rate': 0.05, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 16, 'window_size': 8}]
+ [0.8744260128558196
+  {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 16, 'window_size': 8}]
+ [0.06251011667862529
+  {'learning_rate': 1, 'number_of_negative_samples': 0, 'walk_length': 2, 'walk_number': 100, 'workers': 1, 'dimensions': 16, 'window_size': 8}]
+ [0.6283838450728919
+  {'learning_rate': 0.01, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 8, 'window_size': 16}]
+ [0.824935986942847
+  {'learning_rate': 0.05, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 8, 'window_size': 16}]
+ [0.04075261779687407
+  {'learning_rate': 1, 'number_of_negative_samples': 0, 'walk_length': 2, 'walk_number': 100, 'workers': 1, 'dimensions': 8, 'window_size': 16}]
+ [0.8337106441992561
+  {'learning_rate': 0.1, 'number_of_negative_samples': 0, 'walk_length': 5, 'walk_number': 100, 'workers': 1, 'dimensions': 8, 'window_size': 16}]]

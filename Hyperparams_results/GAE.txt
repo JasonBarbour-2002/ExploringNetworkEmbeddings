@@ -1,0 +1,34 @@
+Best score: 1.0928157711647892
+Best params: {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}
+All results: [[1.0828647861511445
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0740501408690282
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.5, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.075379186673593
+  {'beta': 0.5, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0838599827810618
+  {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.5, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.081514020793706
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 5}]
+ [1.0805715083014142
+  {'beta': 0.5, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0734615655226483
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0707948909991811
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.5, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 5}]
+ [1.0455580729815683
+  {'beta': 0.5, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.5, 'iterations': 200, 'lamb': 1.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0788643288734447
+  {'beta': 1.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 5}]
+ [1.074486440159146
+  {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0868736958562275
+  {'beta': 0.5, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.5, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 10}]
+ [1.0928157711647892
+  {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 1.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0453462602931676
+  {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 1.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0748066429780667
+  {'beta': 0.0, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 0.5, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 1}]
+ [1.0763564486408541
+  {'beta': 0.5, 'dimensions': 128, 'fast_gae': True, 'gamma': 0.0, 'iterations': 200, 'lamb': 0.0, 'learning_rate': 0.01, 'model': 'linear_ae', 's_reg': 5}]]

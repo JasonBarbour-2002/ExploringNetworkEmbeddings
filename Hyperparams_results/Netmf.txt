@@ -1,0 +1,34 @@
+Best score: 0.9420809551315743
+Best params: {'dimensions': 128, 'iteration': 200, 'negative_samples': 5, 'order': 3}
+All results: [[0.8043616655804351
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 1, 'order': 2}]
+ [0.8951849120865917
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 10, 'order': 2}]
+ [0.8938819979521846
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 10, 'order': 2}]
+ [0.8045649375276474
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 1, 'order': 2}]
+ [0.9402617776782318
+  {'dimensions': 128, 'iteration': 100, 'negative_samples': 5, 'order': 3}]
+ [0.8930772155887308
+  {'dimensions': 128, 'iteration': 100, 'negative_samples': 10, 'order': 2}]
+ [0.92306559157399
+  {'dimensions': 128, 'iteration': 100, 'negative_samples': 1, 'order': 3}]
+ [0.8512055791806297
+  {'dimensions': 128, 'iteration': 100, 'negative_samples': 20, 'order': 1}]
+ [0.9271008759363241
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 1, 'order': 3}]
+ [0.8895595099652622
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 10, 'order': 3}]
+ [0.9420809551315743
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 5, 'order': 3}]
+ [0.8299018995559526
+  {'dimensions': 128, 'iteration': 200, 'negative_samples': 20, 'order': 2}]
+ [0.9260640609837328
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 1, 'order': 3}]
+ [0.8866412841644005
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 10, 'order': 3}]
+ [0.9408438612996463
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 5, 'order': 3}]
+ [0.8326131269868519
+  {'dimensions': 128, 'iteration': 500, 'negative_samples': 20, 'order': 2}]]

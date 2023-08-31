@@ -1,0 +1,34 @@
+Best score: 0.6091401009776938
+Best params: {'alpha': 1, 'order': 1, 'dimensions': 64, 'iterations': 1}
+All results: [[0.4385899890027962
+  {'alpha': 10, 'order': 1, 'dimensions': 64, 'iterations': 1}]
+ [0.3932396380221528
+  {'alpha': 5, 'order': 1, 'dimensions': 32, 'iterations': 3}]
+ [0.37971684952271223
+  {'alpha': 5, 'order': 1, 'dimensions': 64, 'iterations': 1}]
+ [0.5544759295650957
+  {'alpha': 20, 'order': 1, 'dimensions': 32, 'iterations': 3}]
+ [0.46029595984197613
+  {'alpha': 10, 'order': 1, 'dimensions': 32, 'iterations': 3}]
+ [0.39155708710226905
+  {'alpha': 5, 'order': 1, 'dimensions': 16, 'iterations': 7}]
+ [0.538357077812082
+  {'alpha': 20, 'order': 1, 'dimensions': 16, 'iterations': 7}]
+ [0.45807169578862533
+  {'alpha': 10, 'order': 1, 'dimensions': 16, 'iterations': 7}]
+ [0.5159437937592709
+  {'alpha': 20, 'order': 1, 'dimensions': 64, 'iterations': 1}]
+ [0.42894485611974176
+  {'alpha': 10, 'order': 1, 'dimensions': 8, 'iterations': 15}]
+ [0.36709688356676157
+  {'alpha': 5, 'order': 1, 'dimensions': 8, 'iterations': 15}]
+ [0.491911192129201
+  {'alpha': 20, 'order': 2, 'dimensions': 8, 'iterations': 15}]
+ [0.5428307426357006
+  {'alpha': 1, 'order': 3, 'dimensions': 16, 'iterations': 7}]
+ [0.5679664574143405
+  {'alpha': 1, 'order': 1, 'dimensions': 32, 'iterations': 3}]
+ [0.4826342540501714
+  {'alpha': 1, 'order': 3, 'dimensions': 8, 'iterations': 15}]
+ [0.6091401009776938
+  {'alpha': 1, 'order': 1, 'dimensions': 64, 'iterations': 1}]]

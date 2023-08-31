@@ -1,0 +1,18 @@
+Best score: 0.9620740659110211
+Best params: {'alphas': [0, 1.0], 'dimensions': 128}
+All results: [[-inf {}]
+ [-inf {}]
+ [-inf {}]
+ [-inf {}]
+ [-inf {}]
+ [0.9620740659110211 {'alphas': [0.0, 1.0], 'dimensions': 128}]
+ [0.9443089911020507 {'alphas': [0.1, 0.9], 'dimensions': 128}]
+ [0.9223553365308638 {'alphas': [0.2, 0.8], 'dimensions': 128}]
+ [0.8893557735981141 {'alphas': [0.3, 0.7], 'dimensions': 128}]
+ [0.838931588676315 {'alphas': [0.4, 0.6], 'dimensions': 128}]
+ [0.7867188184524135 {'alphas': [0.5, 0.5], 'dimensions': 128}]
+ [0.7437009735956369 {'alphas': [0.6, 0.4], 'dimensions': 128}]
+ [0.7134143974455813 {'alphas': [0.7, 0.3], 'dimensions': 128}]
+ [0.665904483505249 {'alphas': [0.8, 0.2], 'dimensions': 128}]
+ [0.5634067127866549 {'alphas': [1.0, 0.0], 'dimensions': 128}]
+ [0.6157535030969762 {'alphas': [0.9, 0.1], 'dimensions': 128}]]
