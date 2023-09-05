@@ -4,9 +4,8 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import scipy.sparse as sp
-import scipy.stats as stats
 from scipy.special import rel_entr
-from Graph_Embedding.utils import Size_Dist,Internal_Deg_dist,Intern_Density,Max_ODF,Middle,AverageOD,FlakeODF,Embededness,InternalDistance,Hub_dominance
+from utils import Size_Dist,Internal_Deg_dist,Intern_Density,Max_ODF,Middle,AverageOD,FlakeODF,Embededness,InternalDistance,Hub_dominance
 
 Current_path = 'Evaluate_Embedding/'
 def Load_Graph(path,i):
@@ -37,16 +36,18 @@ def Just_Graph():
         plt.xlabel(Metric_name[id])
         plt.ylabel('cumulative distribution')
         plt.tight_layout()
-        plt.savefig(f'Metrics/Graphs/{Metric_name[id]}')
+        plt.savefig(f'Evaluate_Embedding/Metrics/Graphs/{Metric_name[id]}.png')
         plt.close()
 
 # Graph and embedding
 def Graph_Embedding():
-    if not os.path.exists('Metrics/Embedding'):
-        os.makedirs('Metrics/Embedding')
+    if not os.path.exists(f'{Current_path}/Metrics/Embedding'):
+        os.makedirs(f'{Current_path}Metrics/Embedding')
     for id,M in enumerate(Metrics):
-        if not os.path.exists(f'Metrics/Embedding/{Metric_name[id]}'):
-            os.makedirs(f'Metrics/Embedding/{Metric_name[id]}')
+        if not os.path.exists(f'{Current_path}Metrics/Embedding/{Metric_name[id]}'):
+            os.makedirs(f'{Current_path}Metrics/Embedding/{Metric_name[id]}')
+        if not os.path.exists(f'{Current_path}Metrics/Saved/{Metric_name[id]}'):
+            os.makedirs(f'{Current_path}Metrics/Saved/{Metric_name[id]}')
         for idx,param in enumerate(R):
             Graph = Graphs[idx]
             attr = attrs[idx]
@@ -59,6 +60,7 @@ def Graph_Embedding():
                     try:
                         emb = np.load(f'Graph_Embedding/Label_{L}/{param}/{Algo}/{i}.npy')
                         h2[i],_ = M(Graph = Graph,Labels = emb,size= num_comu)
+                        np.save(f'Evaluate_Embedding/Metrics/Saved/{Metric_name[id]}/{L}_{param}_{Algo}_{i}.npy',h2[i])
                     except:
                         print(f'error in loading embedding file {i} for {Algo}')
                         pass
@@ -90,7 +92,8 @@ def Times():
     ax.set_ylabel('Time (min)')
     plt.tight_layout()
     plt.savefig(f'{Current_path}Metrics/Times.png')
-    plt.show()
+    plt.close()
+    # plt.show()
 
 def Ks_div():
     KL_div = np.zeros((len(R),len(Metrics),len(Algos)))
@@ -102,12 +105,11 @@ def Ks_div():
             h,b = M(Graph = Graph,Labels = attr,size= num_comu)
             b = Middle(b)
             h[h ==0] = np.finfo(float).eps
-            for j,Algo in tqdm(enumerate(Algos),desc=f'{Metric_name[id]} for {L} = {param}',total=len(Algos)):
+            for j,Algo in enumerate(Algos):
                 h2 = np.zeros((30,h.shape[0]))
                 for k in range(30):
                     try:
-                        emb = np.load(f'Label_{L}/{param}/{Algo}/{k}.npy')
-                        h2[k],_ = M(Graph = Graph,Labels = emb,size= num_comu)
+                        h2[k] = np.load(f'Evaluate_Embedding/Metrics/Saved/{Metric_name[i]}/{L}_{param}_{Algo}_{k}.npy')
                     except:
                         print(f'error in loading embedding file {k} for {Algo}')
                         pass
@@ -118,8 +120,8 @@ def Ks_div():
 
 def Analise():
     KL = np.load(f'{Current_path}Metrics/KL_div.npy')
-    if not os.path.exists(f'{Current_path}Metrics/Analise/KL_div'):
-        os.makedirs(f'{Current_path}Metrics/Analise/KL_div')
+    if not os.path.exists(f'{Current_path}Metrics/Analise/KL'):
+        os.makedirs(f'{Current_path}Metrics/Analise/KL')
     for i,M in enumerate(Metrics):
         plt.rcParams['text.usetex'] = True
         for j,Algo in enumerate(Algos):
@@ -129,7 +131,7 @@ def Analise():
         plt.xticks(fontsize=30)
         plt.yticks(fontsize=30)
         plt.tight_layout()
-        plt.savefig(f'{Current_path}Metrics/Analise/KL/{Metric_name[id]}.pdf',dpi=300)
+        plt.savefig(f'{Current_path}Metrics/Analise/KL/{Metric_name[i]}.pdf',dpi=300)
         plt.close()
 Metrics = [Size_Dist,Internal_Deg_dist,Intern_Density,Max_ODF,AverageOD,FlakeODF,Embededness,InternalDistance,Hub_dominance]
 Metric_name = ['Size Distribution','Internal Degree distribution','Internal Density','Max-ODF','Average-ODF','Falke-ODF','Embededness','Internal Distance','Hub dominance']
@@ -138,7 +140,7 @@ Algos = ['M-GAE','DeepWalk','BoostNE','NetMF', 'Walklets','Diff2Vec','M-NMF','No
 L = 'mu'
 R = np.arange(0.1,0.71,0.1)
 R = np.round(R,2)
-path = f'Graph_{L}/'
+path = f'Graph_Generation/Graph_mu/'
 Graphs = []
 attrs = []
 num_comus = []
@@ -147,8 +149,8 @@ for param in tqdm(R,desc='Loading Graphs'):
     Graphs.append(G)
     attrs.append(A)
     num_comus.append(N)
-Just_Graph()
-Graph_Embedding()
-Times()
+# Just_Graph()
+# Graph_Embedding()
+# Times()
 Ks_div()
 Analise()

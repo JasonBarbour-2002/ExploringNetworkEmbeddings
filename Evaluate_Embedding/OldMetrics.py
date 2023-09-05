@@ -39,7 +39,7 @@ def metrics():
             Macro_F1s = np.zeros(30)
             Micro_F1s = np.zeros(30)
             for k in range (30):
-                emb = np.load(f'Label_{L}/{i}/{algo}/{k}.npy')
+                emb = np.load(f'Graph_Embedding/Label_{L}/{i}/{algo}/{k}.npy')
                 AMIs[k] = AMI(attr,emb)
                 NMIs[k] = NMI(attr,emb)
                 ARIs[k] = ARI(attr,emb)
