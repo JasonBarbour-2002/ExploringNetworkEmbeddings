@@ -82,7 +82,7 @@ def Times():
         Times = np.zeros((len(R),30))
         for idx,param in enumerate(R):
                 time = np.loadtxt(f'Graph_Embedding/Label_{L}/{param}/{Algo}/Times.txt')
-                Times[idx] = time[:30]
+                Times[idx] = time
         Times = Times/60
         Mean = np.mean(Times)
         std = np.std(Times)
@@ -149,8 +149,14 @@ for param in tqdm(R,desc='Loading Graphs'):
     Graphs.append(G)
     attrs.append(A)
     num_comus.append(N)
-# Just_Graph()
-# Graph_Embedding()
-# Times()
+
+# Just the Graphs without embedding
+Just_Graph()
+# The Graphs with embedding
+Graph_Embedding()
+# Running times
+Times()
+# KL divergence of the embedding vs the graph
 Ks_div()
+# Plotting KL divergence for different mu
 Analise()
