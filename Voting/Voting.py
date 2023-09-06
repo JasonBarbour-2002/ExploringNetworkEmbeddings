@@ -2,71 +2,89 @@ import numpy as np
 from schulze_voting import *
 import matplotlib.pyplot as plt
 
-
 KLresults = np.load('Evaluate_Embedding/Metrics/KL_div.npy')
+ami = np.load('Evaluate_Embedding/OldMetrics/mu/ami.npy')
+nmi = np.load('Evaluate_Embedding/OldMetrics/mu/nmi.npy')
+ari = np.load('Evaluate_Embedding/OldMetrics/mu/ari.npy')
+Micro_F1 = np.load('Evaluate_Embedding/OldMetrics/mu/micro_f1.npy')
+Macro_F1 = np.load('Evaluate_Embedding/OldMetrics/mu/macro_f1.npy')
+
+mesure = np.array([ami,nmi,ari,Micro_F1,Macro_F1])
 lists = np.array(['Size_Distribution', 'Internal_Deg_dist', 'Intern_Density', 'Max_ODF', 'AverageODF', 'FlakeODF', 'Embededness', 'Internal_Distance', 'Hub_dominance'])
 Algos = np.array(['M-GAE','Deepwalk', 'BoostNE','NetMF', 'Walklets','Diff2Vec','M-NMF','Node2Vec','RandNE','LEM'])
+
 allvs = []
-allranks = np.zeros((10,7))
+
 for mu in range(KLresults.shape[0]):
-    vs = []
     for j in range(KLresults.shape[1]):
         results = KLresults[mu,j,:]
         temp = np.abs(results).argsort()
         ranks = np.empty_like(temp)
         ranks[temp] = np.arange(len(results))
         v1 = SchulzeVote(ranks,1)
-        vs.append(v1)
         allvs.append(v1)
-    evaluate = evaluate_schulze(vs,10).candidate_wins
-    print(f'mu = {round(0.1+mu*0.1,2)}')
-    for idx,i in enumerate(evaluate):
-        allranks[i,mu] = idx
-        print(Algos[i],end=' ')
-    print('\n') 
-for idn, a in enumerate(Algos):
-    plt.plot(np.arange(0.1,0.8,0.1),allranks[idn],label=a)
-# plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-# plt.tight_layout()
-# plt.show()
+allvs2 = []
+for mu in range(7):
+    for metric in range(5):
+        M = mesure[metric]
+        res = M[mu,:,0]
+        temp = np.argsort(np.abs(res))[::-1]
+        ranks = np.empty_like(temp)
+        ranks[temp] = np.arange(len(res))
+        v1 = SchulzeVote(ranks,1)
+        allvs2.append(v1)
+
 allvs = np.array(allvs)
+allvs2 = np.array(allvs2)
 
-# For each metric
-for idx,i in enumerate(lists):
-    evaluate = evaluate_schulze(allvs[idx::KLresults.shape[1]],10).candidate_wins
-    print(f'{i} & ',end='')
-    for j in evaluate:
-        str = ' '.join(Algos[j])
-        print(str,end='')
-        print(' & '*(Algos[j].shape[0]),end='')
-    print('\n')
-
-
-# For mu < 0.5
+# for mu<= 0.4 for KL
 evaluate = evaluate_schulze(allvs[:5*KLresults.shape[1]],10).candidate_wins
-print(f'mu < 0.5')
+print(f'mu <= 0.4 for KL')
 for i in evaluate:
     str = ' '.join(Algos[i])
     print(str,end='')
     print(' & '*(Algos[i].shape[0]),end='')
 print('\n')
 
-
-# For mu >= 0.5
+# for mu> 0.4 for KL
 evaluate = evaluate_schulze(allvs[5*KLresults.shape[1]:],10).candidate_wins
-print(f'mu >= 0.5')
+print(f'mu > 0.5 for KL')
 for i in evaluate:
     str = ' '.join(Algos[i])
-    print(str,end= '')
-    print(' & '*(Algos[j].shape[0]),end='')
+    print(str,end='')
+    print(' & '*(Algos[i].shape[0]),end='')
 print('\n')
-# For all mu
+
+# for all mu for KL
 evaluate = evaluate_schulze(allvs,10).candidate_wins
-print(f'All mu')
+print(f'All mu for KL')
 for i in evaluate:
     str = ', '.join(Algos[i])
     print(str,end='')
     print(' & '*(Algos[i].shape[0]),end='')
+print('\n')
 
-print('\n') 
-
+# for mu<= 0.4 for old metrics
+evaluate = evaluate_schulze(allvs2[:5*mesure.shape[0]],10).candidate_wins
+print(f'mu <= 0.4 for old metrics')
+for i in evaluate:
+    str = ' '.join(Algos[i])
+    print(str,end='')
+    print(' & '*(Algos[i].shape[0]),end='')
+print('\n')
+# for mu> 0.4 for old metrics
+evaluate = evaluate_schulze(allvs2[5*mesure.shape[0]:],10).candidate_wins
+print(f'mu > 0.4 for old metrics')
+for i in evaluate:
+    str = ' '.join(Algos[i])
+    print(str,end='')
+    print(' & '*(Algos[i].shape[0]),end='')
+print('\n')
+# for all mu for old metrics
+evaluate = evaluate_schulze(allvs2,10).candidate_wins
+print(f'All mu for old metrics')
+for i in evaluate:
+    str = ', '.join(Algos[i])
+    print(str,end='')
+    print(' & '*(Algos[i].shape[0]),end='')
+print('\n')

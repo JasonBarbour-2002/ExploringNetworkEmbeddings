@@ -1,3 +1,6 @@
+# The code is importing the `seaborn` and `pandas` libraries in Python.
+import seaborn as sns
+import pandas as pd
 import numpy as np
 from schulze_voting import *
 import matplotlib.pyplot as plt
@@ -14,43 +17,29 @@ names = np.array(['AMI','NMI','ARI','Micro F1','Macro F1'])
 lists = np.array(['Community size distribution', 'Internal degree distribution', 'Internal density', 'Max-ODF', 'Average-ODF', 'Flake-ODF', 'Embededness', 'Internal distance', 'Hub dominance'])
 Algos = np.array(['M-GAE','Deepwalk', 'BoostNE','NetMF', 'Walklets','Diff2Vec','M-NMF','Node2Vec','RandNE','LEM'])
 
-allvs = []
-
-for mu in range(KLresults.shape[0]):
-    for j in range(KLresults.shape[1]):
-        results = KLresults[mu,j,:]
-        temp = np.abs(results).argsort()
-        ranks = np.empty_like(temp)
-        ranks[temp] = np.arange(len(results))
-        v1 = SchulzeVote(ranks,1)
-        allvs.append(v1)
-allvs2 = []
-for mu in range(7):
-    for metric in range(5):
-        M = mesure[metric]
-        res = M[mu,:,0]
-        temp = np.argsort(np.abs(res))[::-1]
-        ranks = np.empty_like(temp)
-        ranks[temp] = np.arange(len(res))
-        v1 = SchulzeVote(ranks,1)
-        allvs2.append(v1)
-
-
 RanksMeso = np.zeros((len(lists),len(Algos)))
-for idx,Metric in enumerate(lists):
-    evaluate = evaluate_schulze(allvs[idx::KLresults.shape[1]],10).candidate_wins
-    templist = []
-    for i in evaluate:
-        templist += i
-    RanksMeso[idx] = templist
-
 RanksML = np.zeros((len(names),len(Algos)))
-for idx,Metric in enumerate(names):
-    evaluate = evaluate_schulze(allvs2[idx::5],10).candidate_wins
-    templist = []
-    for i in evaluate:
-        templist += i
-    RanksML[idx] = templist
+# for mu = 0.1 Meso 
+print('\n')
+for j in range(KLresults.shape[1]):
+    results = KLresults[0,j,:]
+    print(results)
+    temp = np.argsort(np.abs(results))
+    RanksMeso[j] = temp
+    print(lists[j])
+    print(' & '.join(Algos[temp]))
+    print()
+# print(RanksMeso)
+# for mu = 0.1 ML
+for metric in range(mesure.shape[0]):
+    M = mesure[metric]
+    res = M[0,:,0]
+    temp = np.argsort(np.abs(res))
+    RanksML[metric] = temp
+    print(names[metric])
+    print(' & '.join(Algos[temp]))
+    print()
+
 
 Correlation = np.zeros((len(lists),len(names)))
 for idx,Metric in enumerate(lists):
@@ -58,11 +47,42 @@ for idx,Metric in enumerate(lists):
         Correlation[idx,idy] = np.corrcoef(RanksMeso[idx],RanksML[idy])[0,1]
 
 # Heat map
-import seaborn as sns
-import pandas as pd
 df = pd.DataFrame(Correlation.T,index=names,columns=lists)
 sns.heatmap(df,cmap='jet_r',square=True,vmin=-1,vmax=1,annot=True,fmt='.2f')
 plt.tight_layout()
 plt.xticks(rotation=-45,ha='left')
-plt.savefig('Voting/Correlation.png')
+plt.savefig('Voting/Correlation_0.1.png')
+plt.show()
+
+# for mu = 0.7 Meso
+for j in range(KLresults.shape[1]):
+    results = KLresults[-1,j,:]
+    print(results)
+    temp = np.argsort(np.abs(results))
+    RanksMeso[j] = temp
+    print(lists[j])
+    print(' & '.join(Algos[temp]))
+    print()
+
+# for mu = 0.7 ML
+for metric in range(mesure.shape[0]):
+    M = mesure[metric]
+    res = M[-1,:,0]
+    temp = np.argsort(np.abs(res))
+    RanksML[metric] = temp
+    print(names[metric])
+    print(' & '.join(Algos[temp]))
+    print()
+
+Correlation = np.zeros((len(lists),len(names)))
+for idx,Metric in enumerate(lists):
+    for idy,metric in enumerate(names):
+        Correlation[idx,idy] = np.corrcoef(RanksMeso[idx],RanksML[idy])[0,1]
+
+# Heat map
+df = pd.DataFrame(Correlation.T,index=names,columns=lists)
+sns.heatmap(df,cmap='jet_r',square=True,vmin=-1,vmax=1,annot=True,fmt='.2f')
+plt.tight_layout()
+plt.xticks(rotation=-45,ha='left')
+plt.savefig('Voting/Correlation_0.7.png')
 plt.show()
